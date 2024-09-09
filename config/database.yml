@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: "scaminom"
+  password: "root"
+  timeout: 5000
+
+development:
+  <<: *default
+  database: users_graph_development
+
+test:
+  <<: *default
+  database: users_graph_test
+
+production:
+  <<: *default
+  database: users_graph_production
+  username: users_graph
+  password: <%= ENV["USERS_GRAPH_DATABASE_PASSWORD"] %>
